@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './LoadingPage.css';
+import './LoadingPage.scss';
 import LogoParkIF from '../../../resources/LogoParkIF.png';
 import { IonImg } from '@ionic/react';
 import { useHistory } from 'react-router';
@@ -16,11 +16,7 @@ export default function LoadingPage() {
 
     return (
         <div className='LoadingPage'>
-            <IonImg
-                className='LogoParkIF'
-                src={LogoParkIF}
-                alt='Logo ParkIF'
-            ></IonImg>
+            <IonImg src={LogoParkIF} alt='Logo ParkIF'></IonImg>
         </div>
     );
 }
