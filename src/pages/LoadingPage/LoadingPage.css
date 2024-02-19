@@ -1,0 +1,12 @@
+.LoadingPage {
+    background-color: #74b59d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.LogoParkIF {
+    max-width: 500px;
+    max-height: 500px;
+}

@@ -1,6 +1,12 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import {
+    IonApp,
+    IonRouterOutlet,
+    IonSplitPane,
+    setupIonicReact,
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import { Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import Page from './pages/Page';
 
@@ -22,13 +28,39 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import LoadingPage from './pages/LoadingPage/LoadingPage';
+import AdministracaoHomePage from './pages/AdministracaoHomePage/AdministracaoHomePage';
+import AlunoHomePage from './pages/AlunoHomePage/AlunoHomePage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
+import UserSelectPage from './pages/UserSelectPage/UserSelectPage';
+import { Redirect } from 'react-router';
 
 setupIonicReact();
 
 const App: React.FC = () => {
-  return (
-    <IonApp>
-      <IonReactRouter>
+    return (
+        <IonApp>
+            <IonReactRouter>
+                <IonRouterOutlet>
+                    <Route path='/loading' component={LoadingPage}></Route>
+                    <Route
+                        path='/administracaohome'
+                        component={AdministracaoHomePage}
+                    ></Route>
+                    <Route path='/alunoHome' component={AlunoHomePage}></Route>
+                    <Route path='/login' component={LoginPage}></Route>
+                    <Route path='/signup' component={SignUpPage}></Route>
+                    <Route
+                        path='/userselect'
+                        component={UserSelectPage}
+                    ></Route>
+                    <Redirect exact from='/' to='/loading' />
+                </IonRouterOutlet>
+            </IonReactRouter>
+            {/* <LoadingPage></LoadingPage> */}
+            {/*todo colocar o menu aqui após a implementação da tela inicial. */}
+            {/* <IonReactRouter>
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
@@ -40,9 +72,9 @@ const App: React.FC = () => {
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>
-      </IonReactRouter>
-    </IonApp>
-  );
+      </IonReactRouter> */}
+        </IonApp>
+    );
 };
 
 export default App;
